@@ -35,3 +35,22 @@ Nauka administracji Linux, Git i budowa serwera NAS na Debianie 13.
 - NAS → Windows: odczyt plików działa
 - Uprawnienia nowych plików: `0660`
 - Uprawnienia nowych katalogów: `0770`
+
+## Monitoring — Netdata
+
+- Narzędzie: Netdata
+- Wersja: 2.12.0
+- Dashboard: `http://192.168.0.110:19999`
+- Usługa systemd: `netdata.service`
+- Autostart: włączony
+- Kanał aktualizacji: stable
+- Telemetria Netdata Cloud: wyłączona
+
+### Monitorowane obszary
+
+- CPU
+- RAM
+- przestrzeń `/mnt/nas`
+- I/O dysków
+- ruch sieciowy
+- stan usług/systemu
