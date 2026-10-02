@@ -25,7 +25,7 @@ Nauka administracji Linux, Git i budowa serwera NAS na Debianie 13.
 - Zapis: włączony
 - `create mask`: `0660`
 - `directory mask`: `0770`
-- Dostęp z Windows: `\\192.168.0.110\NAS`
+- Dostęp z Windows: `\\192.168.0.110\Dom-Dane`
 
 ### Testy
 
