@@ -18,14 +18,16 @@ Nauka administracji Linux, Git i budowa serwera NAS na Debianie 13.
 ## Samba NAS
 
 - Usługa: Samba (`smbd`)
-- Udział: `NAS`
+- Udział: `Dom-Dane`
 - Ścieżka: `/mnt/nas`
 - Użytkownik Samba: `szymon`
 - Dostęp gościa: wyłączony
+- Udział `[homes]`: wyłączony
 - Zapis: włączony
 - `create mask`: `0660`
 - `directory mask`: `0770`
 - Dostęp z Windows: `\\192.168.0.110\Dom-Dane`
+- Dostęp z iOS: SMB przez aplikację Pliki
 
 ### Testy
 
