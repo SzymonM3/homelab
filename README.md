@@ -14,6 +14,8 @@ Nauka administracji Linux, Git i budowa serwera NAS na Debianie 13.
 - System plików: ext4
 - Punkt montowania: `/mnt/nas`
 - Automatyczne montowanie: `/etc/fstab`
+- Montowanie po UUID: `964b8ea4-7ca1-4175-a394-cdb34441df54`
+- Opcja `nofail`: brak dysku NAS nie blokuje startu systemu
 
 ## Samba NAS
 
