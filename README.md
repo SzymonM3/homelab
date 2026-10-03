@@ -28,6 +28,7 @@ Nauka administracji Linux, Git i budowa serwera NAS na Debianie 13.
 - `directory mask`: `0770`
 - Dostęp z Windows: `\\192.168.0.110\Dom-Dane`
 - Dostęp z iOS: SMB przez aplikację Pliki
+- `lost+found`: ukryty przed klientami SMB za pomocą `veto files`
 
 ### Testy
 
