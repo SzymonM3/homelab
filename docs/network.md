@@ -87,3 +87,21 @@ Konfiguracja infrastruktury i kolejne etapy rozwoju Homelaba są dokumentowane w
 Poniższy diagram przedstawia fizyczną i logiczną topologię domowej sieci LAN, wraz z lokalizacją głównych urządzeń infrastruktury oraz serwera Homelab.
 
 ![Diagram topologii sieci](network-topology.png)
+
+### Diagram topologii — Mermaid
+
+```mermaid
+flowchart TD
+    INTERNET((Internet)) --> ONT[ONT]
+    ONT --> ER605[TP-Link ER605<br/>Router / Gateway]
+    ER605 --> SWITCH[TP-Link SG1016D<br/>Switch]
+
+    SWITCH --> PATCH[Patch panel<br/>24 porty]
+    PATCH --> SALON[Salon]
+    PATCH --> POKOJ1[Pokój 1]
+    PATCH --> POKOJ2[Pokój 2]
+    PATCH --> BIURO[Biuro]
+    PATCH --> SYPIALNIA[Sypialnia]
+
+    SWITCH --> HOMELAB[Fujitsu Esprimo Q9000<br/>Homelab]
+    HOMELAB --> NAS[USB HDD<br/>NAS]
