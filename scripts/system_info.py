@@ -1,13 +1,17 @@
-with open("/proc/uptime") as file:
-    data = file.read()
+def get_uptime():
+    with open("/proc/uptime") as file:
+        data = file.read()
 
-parts = data.split()
-uptime = float(parts[0])
+    parts = data.split()
+    uptime = float(parts[0])
 
-total_hours = int(uptime // 3600)
+    total_hours = int(uptime // 3600)
 
-days = total_hours // 24
-hours = total_hours % 24
+    days = total_hours // 24
+    hours = total_hours % 24
 
-print(f"Uptime: {days} days, {hours} hours")
+    return f"{days} days, {hours} hours"
+
+uptime = get_uptime()
+print(f"Uptime: {uptime}")
 
