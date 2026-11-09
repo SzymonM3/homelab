@@ -1,0 +1,10 @@
+[Unit]
+Description=Homelab Dashboard Update Timer
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+Unit=homelab.dashboard.service
+
+[Install]
+WantedBy=timers.target

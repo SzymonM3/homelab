@@ -1,0 +1,6 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Generated system data
+/system_info.json

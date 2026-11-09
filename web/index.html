@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homelab Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="dashboard">
+      <header class="dashboard-header">
+        <div>
+          <p class="eyebrow">HOMELAB / OVERVIEW</p>
+          <h1>Dashboard</h1>
+          <p class="dashboard-subtitle">
+            Server monitoring and service management
+          </p>
+        </div>
+
+        <div class="header-info">
+          <span class="header-label">HOSTNAME</span>
+          <span id="hostname" class="header-hostname">—</span>
+        </div>
+      </header>
+
+      <section class="dashboard-section">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">SYSTEM MONITORING</p>
+            <h2>System Overview</h2>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <span class="metric-label">CPU USAGE</span>
+            <span id="cpu" class="metric-value">—</span>
+            <span id="cpu-status" class="metric-status">—</span>
+
+            <div class="progress-track">
+              <div id="cpu-bar" class="progress-fill"></div>
+            </div>
+
+            <span class="metric-description">Processor utilization</span>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-label">MEMORY</span>
+            <span id="memory" class="metric-value">—</span>
+            <span id="memory-status" class="metric-status">—</span>
+
+            <div class="progress-track">
+              <div id="memory-bar" class="progress-fill"></div>
+            </div>
+
+            <div class="metric-details">
+              <span id="memory-used">—</span>
+              <span id="memory-available">—</span>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-label">UPTIME</span>
+            <span id="uptime" class="metric-value">—</span>
+            <span class="metric-description">System running time</span>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-label">LOAD AVERAGE</span>
+
+            <div class="load-values">
+              <div>
+                <span class="load-label">1 min</span>
+                <span id="load-1" class="load-value">—</span>
+              </div>
+
+              <div>
+                <span class="load-label">5 min</span>
+                <span id="load-5" class="load-value">—</span>
+              </div>
+
+              <div>
+                <span class="load-label">15 min</span>
+                <span id="load-15" class="load-value">—</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">DISK MONITORING</p>
+            <h2>Storage</h2>
+          </div>
+        </div>
+
+        <div class="storage-grid">
+          <article class="metric-card">
+            <span class="metric-label">SYSTEM DISK</span>
+            <span id="disk-root" class="metric-value">—</span>
+            <span id="disk-root-status" class="metric-status">—</span>
+
+            <div class="progress-track">
+              <div id="disk-root-bar" class="progress-fill"></div>
+            </div>
+
+            <div class="metric-details">
+              <span id="disk-root-used">—</span>
+              <span id="disk-root-free">—</span>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-label">NAS STORAGE</span>
+            <span id="disk-nas" class="metric-value">—</span>
+            <span id="disk-nas-status" class="metric-status">—</span>
+
+            <div class="progress-track">
+              <div id="disk-nas-bar" class="progress-fill"></div>
+            </div>
+
+            <div class="metric-details">
+              <span id="disk-nas-used">—</span>
+              <span id="disk-nas-free">—</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">NETWORK MONITORING</p>
+            <h2>Network</h2>
+          </div>
+        </div>
+
+        <div class="network-grid">
+          <article class="metric-card">
+            <span class="metric-label">IP ADDRESS</span>
+            <span class="metric-value">192.168.0.110</span>
+            <span class="metric-description">Local network</span>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-label">DOWNLOAD (RX)</span>
+            <span id="network-rx" class="metric-value">—</span>
+            <span class="metric-description">Incoming traffic</span>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-label">UPLOAD (TX)</span>
+            <span id="network-tx" class="metric-value">—</span>
+            <span class="metric-description">Outgoing traffic</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">SERVICE MONITORING</p>
+            <h2>Services</h2>
+          </div>
+        </div>
+
+        <div class="services-card">
+          <div class="service-row">
+            <span class="service-name">SSH</span>
+            <span id="service-ssh" class="service-status">—</span>
+          </div>
+
+          <div class="service-row">
+            <span class="service-name">Samba</span>
+            <span id="service-samba" class="service-status">—</span>
+          </div>
+
+          <div class="service-row">
+            <span class="service-name">Nginx</span>
+            <span id="service-nginx" class="service-status">—</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section" id="applications">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">HOMELAB TOOLS</p>
+            <h2>Applications</h2>
+          </div>
+        </div>
+
+        <div class="applications-grid">
+          <a
+            class="application-card clickable"
+            href="http://192.168.0.110:19999"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>Netdata</h3>
+            <p>Detailed system monitoring</p>
+            <span class="application-status available">Available</span>
+          </a>
+
+          <a class="application-card clickable" href="#">
+            <h3>HomeCore</h3>
+            <p>Smart home management</p>
+            <span class="application-status in-progress">In Progress</span>
+          </a>
+
+          <a class="application-card clickable" href="#">
+            <h3>File Manager</h3>
+            <p>Server file management</p>
+            <span class="application-status planned">Planned</span>
+          </a>
+        </div>
+      </section>
+
+      <footer class="dashboard-footer">
+        <span>Homelab Dashboard</span>
+        <span> Last update: <span id="last-update">—</span> </span>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

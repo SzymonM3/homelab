@@ -1,0 +1,9 @@
+[Unit]
+Description=Homelab Dashboard System Information
+
+[Service]
+Type=oneshot
+User=szymon
+Group=www-data
+WorkingDirectory=/home/szymon/homelab
+ExecStart=/usr/bin/python3 /home/szymon/homelab/scripts/system_info.py
