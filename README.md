@@ -76,6 +76,14 @@ A lightweight web-based dashboard developed to monitor the essential status and 
 
 Unlike Netdata, this dashboard is a custom-built project focused on presenting selected system information in a simple interface.
 
+**Dashboard Overview:**
+
+![Dashboard Overview](docs/images/dashboard-overview.png)
+
+**Dashboard Details:**
+
+![Dashboard Details](docs/images/dashboard-details.png)
+
 **Architecture:**
 
 ```text
