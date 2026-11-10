@@ -207,7 +207,6 @@ Cloud Commander is available from the Applications section of the Homelab Dashbo
 | Monitoring            | Netdata                  |
 | Data exchange         | JSON                     |
 | Version control       | Git, GitHub              |
-| Virtualization / lab  | VirtualBox               |
 
 ## Repository Structure
 
