@@ -1,0 +1,17 @@
+[Unit]
+Description=Cloud Commander File Manager
+After=network.target
+
+[Service]
+Type=simple
+User=szymon
+Group=szymon
+Environment=HOME=/home/szymon
+WorkingDirectory=/home/szymon
+ExecStart=/usr/bin/cloudcmd --no-open
+Restart=on-failure
+RestartSec=5
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

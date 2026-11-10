@@ -1,6 +1,6 @@
 # Homelab
 
-A personal homelab project built on Debian 13. The project combines Linux system administration, network storage, service monitoring and a custom web-based system dashboard.
+A personal homelab project built on Debian 13. The project combines Linux system administration, network storage, service monitoring, file management and a custom web-based system dashboard.
 
 The main goal is to develop practical skills in Linux administration, networking, Python, web technologies, systemd and Git.
 
@@ -14,9 +14,10 @@ The main goal is to develop practical skills in Linux administration, networking
 - Web server: nginx
 - File sharing: Samba
 - System monitoring: Netdata
+- File management: Cloud Commander
 - Custom monitoring: Homelab Dashboard
 
-### Storage — NAS
+### Storage: NAS
 
 - Storage device: 1 TB HDD
 - Partition table: GPT
@@ -88,24 +89,24 @@ Unlike Netdata, this dashboard is a custom-built project focused on presenting s
 
 ```text
 Debian System
-     |
-     v
+    |
+    v
 Python Data Collection
-     |
-     v
+    |
+    v
 JSON File
-     |
-     v
+    |
+    v
 HTML / CSS / JavaScript
-     |
-     v
+    |
+    v
 nginx Web Server
-     |
-     v
+    |
+    v
 Web Browser
 ```
 
-**Backend — Python**
+**Backend: Python**
 
 The Python script collects system information directly from Debian system interfaces and commands.
 
@@ -122,7 +123,7 @@ Collected metrics include:
 
 The collected information is exported to a JSON file.
 
-**Frontend — HTML, CSS and JavaScript**
+**Frontend: HTML, CSS and JavaScript**
 
 The web interface displays:
 
@@ -130,12 +131,15 @@ The web interface displays:
 - CPU and memory usage
 - Storage usage
 - Network traffic
+- System load average
 - Selected service statuses
 - Last data update time
 
+The Load Average metric represents the average number of runnable or I/O-waiting processes over 1, 5 and 15 minutes. Values should be interpreted in relation to the number of CPU cores.
+
 The frontend retrieves data from the JSON endpoint and refreshes automatically every 30 seconds.
 
-**Automation — systemd**
+**Automation: systemd**
 
 The data collection script runs automatically through a systemd service and timer.
 
@@ -144,9 +148,49 @@ The data collection script runs automatically through a systemd service and time
 - Execution interval: 30 seconds
 - Automatic startup: enabled
 
-**Web server — nginx**
+**Web server: nginx**
 
 nginx serves the static dashboard files and exposes the generated JSON data over HTTP.
+
+### File Management: Cloud Commander
+
+Cloud Commander provides a web-based interface for managing files and directories directly on the Debian server.
+
+**Features:**
+
+- Browse the server filesystem
+- View and manage files and directories
+- Copy and move files
+- Rename and delete files
+- Access the NAS and other filesystem locations subject to Unix permissions
+
+**Architecture and configuration:**
+
+- Application: Cloud Commander
+- Version: 19.23.0
+- Runtime: Node.js 24.22.2
+- Application service: `cloudcmd.service`
+- Application bind address: `127.0.0.1`
+- Application port: `8001`
+- Access path through nginx: `/files/`
+- Authentication: HTTP Basic Authentication
+- Application runs as the unprivileged `szymon` user
+- Filesystem root: `/`
+- Console and terminal access: disabled
+
+Cloud Commander is not exposed directly to the network. nginx acts as a reverse proxy and forwards requests to the application listening on localhost.
+
+The application runs without root privileges. File operations are therefore restricted by the permissions of the `szymon` user.
+
+**Security considerations:**
+
+- Authentication is required to access the application.
+- Console and terminal functionality are disabled.
+- The application is restricted to localhost.
+- Access is intended for the local network.
+- HTTP Basic Authentication over plain HTTP does not encrypt credentials in transit. HTTPS should be configured before exposing the service outside a trusted network.
+
+Cloud Commander is available from the Applications section of the Homelab Dashboard.
 
 ## Technologies
 
@@ -159,6 +203,7 @@ nginx serves the static dashboard files and exposes the generated JSON data over
 | Backend               | Python 3                 |
 | Frontend              | HTML, CSS, JavaScript    |
 | Web server            | nginx                    |
+| File management       | Cloud Commander, Node.js |
 | Monitoring            | Netdata                  |
 | Data exchange         | JSON                     |
 | Version control       | Git, GitHub              |
@@ -174,6 +219,7 @@ homelab/
 ├── scripts/
 │   └── system_info.py
 ├── systemd/
+│   ├── cloudcmd.service
 │   ├── homelab.dashboard.service
 │   └── homelab.dashboard.timer
 ├── web/
@@ -186,6 +232,6 @@ homelab/
 
 ## Project Status
 
-The Debian server, NAS storage, Samba file sharing, Netdata monitoring and Homelab Dashboard v1 are implemented and tested.
+The Debian server, NAS storage, Samba file sharing, Netdata monitoring, Homelab Dashboard v1 and Cloud Commander file management are implemented and tested.
 
-The project is maintained as a practical learning environment for Linux administration, infrastructure management and web development.
+The project is maintained as a practical learning environment for Linux administration, infrastructure management, networking and web development.
